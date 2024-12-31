@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Início - Rebeca & Alexandre</title>
+        <script src="{% static 'website/js/home.js' %}"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="{% static 'website/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <!--Using the help from W3 Schools templates to create this NAVBAR-->
+        <div class="w3-bottom w3-hide-small">
+          <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+            <a href="#home" style="width:33.3%" class="w3-bar-item w3-button">Início</a>
+            <a href="#schedule" style="width:33.3%" class="w3-bar-item w3-button w3-hover-black">Programação</a>
+            <!--<a href="#tips" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Dicas</a> ADICIONAR DEPOIS-->
+            <!--<a href="#accommodation" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Hospedagem</a> ADICIONAR DEPOIS-->
+            <a href="#rsvp" style="width:33.3%" class="w3-bar-item w3-button w3-hover-green">Confirme presença</a>
+            <!--<a href="#gifts" style="width:25%" class="w3-bar-item w3-button w3-hover-black">Presentes</a> ADICIONAR DEPOIS-->
+          </div>
+        </div>
+
+        <div id="home">
+          <!--I created this image using Canva Pro. Copyright Canva Creative Studio-->
+          <img src="{% static 'website/home-wedding.svg' %}" alt="home" class="home-picture"> <!--FAZER IMAGEM RESPONSIVA-->
+          <div class="home-text">
+            <p class="countdown-heading">Faltam</p>
+            <div class="countdown">
+                <div class="datetime">
+                  <p id="days">00</p>
+                  <div class="label">Dias</div>
+                </div>
+                <div class="datetime">
+                  <p id="hours">00</p>
+                  <div class="label">Horas</div>
+                </div>
+                <div class="datetime">
+                  <p id="minutes">00</p>
+                  <div class="label">Minutos</div>
+                </div>
+                <div class="datetime">
+                  <p id="seconds">00</p>
+                  <div class="label">Segundos</div>
+                </div>
+            </div>
+          
+            <p class="heading">Caros familiares e amigos,</p>
+            <p class="parag-text">É com muita alegria que convidamos vocês para celebrar conosco esse momento tão especial em nossas vidas!</p>
+            <p class="parag-text">Para deixar tudo mais fácil e prático, reunimos aqui algumas informações importantes sobre esse dia que tanto esperamos.</p>
+            <p class="parag-text"> Nosso casamento será em casa, cercado de pessoas queridas e com um clima aconchegante, 
+              do jeitinho que sempre sonhamos. Queremos que vocês se sintam acolhidos, como se estivessem 
+              em uma grande reunião de família e amigos, com aquele gostinho de "casa" que aquece o coração.</p>
+            <p class="parag-text">Estamos contandos os dias para viver esse dia inesquecível ao lado de cada um de vocês.</p>
+            <p class="parag-text">Com carinho,</p>
+            <p class="signature">Rebeca & Alexandre</p>
+          </div>
+        </div>
+
+        <div id="schedule">
+          <!--I created this image using Canva Pro. Copyright @natikaart.-->
+          <img src="{% static 'website/flowers.svg' %}" alt="schedule-flowers" class="schedule-flowers">
+          <p class="heading-schedule">Programação</p>
+          <p id="countdown"></p>
+          <div class="squares">
+            <div class="left-square">
+              <div class="info-party">
+                <p class="heading-party1">Welcome Night</p>
+                <p class="info-dinner-datetime">Sexta | 18.04 às 19h</p>
+                <p class="info-dinner">Local: a definir</p> <!--Adicionar endereço depois e nome do local-->
+                <p class="info-dinner">Traje sugerido: esporte fino</p> <!--Adicionar infos do dress code real-->
+                <p class="info-dinner-description">Em breve, mais informações.</p>
+                <p class="info-dinner">Em breve, mais informações.</p>
+              </div>
+              <div>
+                <!-- This image is from Canva Pro. Copyright by Indra Pastorio. Authorized use through Canva Pro subscription. -->
+                <img src="{% static 'website/drink.png' %}" alt="drink" class="left-square-image">
+              </div>
+            </div>
+            <div class="left-square">
+              <div class="info-party">
+                <p class="heading-party1">The Day</p>
+                <p class="info-dinner-datetime">Sábado | 19.04 às 15h</p>
+                <p class="info-dinner">Local: casa dos pais do Ale</p> <!--Adicionar endereço depois-->
+                <p class="info-dinner-description">Traje: cocktail attire. Nessa época do ano, o clima tende a ser ameno/levemente calor durante o dia,
+                  e frio a noite. Recomendamos levar casaco/cachecol. Vale lembrar que nosso casamento será em casa, então vestidos midi estão super dentro do dress code.
+                </p> <!--Adicionar infos do dress code real depois-->
+                <p class="info-dinner">Em breve, mais informações.</p>
+              </div>
+              <div>
+                <!-- This image is from Canva Pro. Copyright by Rafaela Pedigoni Mauro. Authorized use through Canva Pro subscription. -->
+                <img src="{% static 'website/home.png' %}" alt="home" class="right-square-image">
+              </div>
+            </div>
+          </div>
+
+        <div id="rsvp">
+          <p class="rsvp-heading">Confirme sua Presença</p>
+          <form method="POST" action="{% url 'rsvp' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Confirme Presença</button>
+            {% if message %}
+              <p>{{ message }}</p>
+            {% endif %}
+          </form>
+        </div>
+
+        <!--ADICIONAR A FRASE EM PRESENTES: <p class="parag-text">O nosso maior presente é a presença de todos vocês! Mas, para aqueles que desejarem, 
+              ficaremos muito gratos com qualquer contribuição para nos ajudar com os custos da nossa lua de mel.</p>-->
+        <!--ADICIONAR A FRASE EM TRAJE: look tranquilo pois é festa em casa-->
+
+    </body>
+</html>

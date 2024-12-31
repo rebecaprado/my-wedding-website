@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Senha - Rebeca & Alexandre</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+        <link href="{% static 'website/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="index-form">
+            <div class="guests-area-2">Reservado para convidados</div>
+            <div class="guests-area-1">Insira a senha para acessar o site de Rebeca & Alexandre</div>
+            <form action="{% url 'index' %}" method="POST" autocomplete="off" class="index-form-2">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Entrar" class="index-submit-button">
+            </form>
+            <div class="error-messages">
+                {% if error_message %}
+                    {{ error_message }}
+                {% endif %}
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
