@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.hashers import check_password
-from django.http import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 from decouple import config
 from .forms import SitePassword
 from .models import ConfirmationForm
+from django.views.decorators.cache import never_cache
 
 
 # Create your views here.
@@ -52,10 +53,13 @@ def home(request):
     
     form = ConfirmationForm()
     return render(request, "website/home.html", {
-        "form": form
+        "form": form,
+        "message": "",
+        "message_type": ""
     })
 
 
+@never_cache
 def rsvp(request):
     form = ConfirmationForm()
 
@@ -63,20 +67,17 @@ def rsvp(request):
         form = ConfirmationForm(request.POST)
 
         if form.is_valid():
-            
-            # Save data collected from Django ModelForm
-            form.save()
 
-            return render(request, "website/home.html", {
-                "form": form,
-                "message": "Resposta enviada"
-            })
+            # Save data collected from Django ModelForm
+            instance = form.save()
+
+            confirmation_status = form.cleaned_data['confirmation']
+            if confirmation_status == 'no':
+                instance.days_present.set([])
+
+            return JsonResponse({"success": True, "message": "Resposta enviada com sucesso!"})
         
-        return render(request, "website/home.html", {
-            "form": form,
-            "message": "Dados inseridos errados"
-        })
-    
-    return render(request, "website/home.html", {
-        "form": form
-    })
+        else:
+            return JsonResponse({"success": False, "errors": form.errors}, status=400)
+        
+       

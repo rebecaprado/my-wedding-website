@@ -11,26 +11,35 @@
         <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="{% static 'website/styles.css' %}" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
     </head>
     <body>
         <!--Using the help from W3 Schools templates to create this NAVBAR-->
         <div class="w3-bottom w3-hide-small">
           <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
-            <a href="#home" style="width:33.3%" class="w3-bar-item w3-button">Início</a>
-            <a href="#schedule" style="width:33.3%" class="w3-bar-item w3-button w3-hover-black">Programação</a>
-            <!--<a href="#tips" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Dicas</a> ADICIONAR DEPOIS-->
-            <!--<a href="#accommodation" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Hospedagem</a> ADICIONAR DEPOIS-->
-            <a href="#rsvp" style="width:33.3%" class="w3-bar-item w3-button w3-hover-green">Confirme presença</a>
-            <!--<a href="#gifts" style="width:25%" class="w3-bar-item w3-button w3-hover-black">Presentes</a> ADICIONAR DEPOIS-->
+            <a href="#home" style="width:16.61%" class="w3-bar-item w3-button">Início</a>
+            <a href="#schedule" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Programação</a>
+            <a href="#tips" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Dicas</a>
+            <a href="#accommodation" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Hospedagem</a>
+            <a href="#rsvp" style="width:16.61%" class="w3-bar-item w3-button w3-hover-green">RSVP</a>
+            <a href="#gifts" style="width:16.61%" class="w3-bar-item w3-button w3-hover-black">Presentes</a>
           </div>
         </div>
 
         <div id="home">
           <!--I created this image using Canva Pro. Copyright Canva Creative Studio-->
-          <img src="{% static 'website/home-wedding.svg' %}" alt="home" class="home-picture"> <!--FAZER IMAGEM RESPONSIVA-->
+          <img src="{% static 'website/wedding-home.svg' %}" alt="home" class="home-picture"> <!--FAZER IMAGEM RESPONSIVA-->
           <div class="home-text">
-            <p class="countdown-heading">Faltam</p>
-            <div class="countdown">
+
+            <div>
+              <img src="{% static 'website/ct-image.svg' %}" alt="countdown-art" class="countdown-picture">
+            </div>
+            
+            <div class="countdown-display">
+              <div>
+                <p class="countdown-heading">Faltam</p>
+              </div>
+              <div class="countdown">
                 <div class="datetime">
                   <p id="days">00</p>
                   <div class="label">Dias</div>
@@ -47,72 +56,296 @@
                   <p id="seconds">00</p>
                   <div class="label">Segundos</div>
                 </div>
+              </div>
+            </div>
+            
+              
+            <div class="home-text-2">
+              <p class="heading">Caros familiares e amigos,</p>
+              <p class="parag-text">É com muita alegria que convidamos vocês para celebrar conosco esse momento tão especial em nossas vidas!</p>
+              <p class="parag-text">Para deixar tudo mais fácil e prático, reunimos aqui algumas informações importantes sobre essa ocasião que tanto esperamos.</p>
+              <p class="parag-text"> Nosso casamento será em casa, cercado de pessoas queridas e com um clima aconchegante, 
+                do jeitinho que sempre sonhamos. Queremos que vocês se sintam acolhidos, como se estivessem 
+                em uma grande reunião de família e amigos, com aquele gostinho de "casa" que aquece o coração.</p>
+              <p class="parag-text">Estamos contandos os segundos para viver esses dias inesquecíveis ao lado de cada um de vocês.</p>
+              <p class="parag-text">Com carinho,</p>
+              <p class="signature">Rebeca & Alexandre</p>
+
+              <div>
+                <img src="{% static 'website/ct-image-2.svg' %}" alt="countdown-art-2" class="countdown-picture-2">
+              </div>
             </div>
           
-            <p class="heading">Caros familiares e amigos,</p>
-            <p class="parag-text">É com muita alegria que convidamos vocês para celebrar conosco esse momento tão especial em nossas vidas!</p>
-            <p class="parag-text">Para deixar tudo mais fácil e prático, reunimos aqui algumas informações importantes sobre esse dia que tanto esperamos.</p>
-            <p class="parag-text"> Nosso casamento será em casa, cercado de pessoas queridas e com um clima aconchegante, 
-              do jeitinho que sempre sonhamos. Queremos que vocês se sintam acolhidos, como se estivessem 
-              em uma grande reunião de família e amigos, com aquele gostinho de "casa" que aquece o coração.</p>
-            <p class="parag-text">Estamos contandos os dias para viver esse dia inesquecível ao lado de cada um de vocês.</p>
-            <p class="parag-text">Com carinho,</p>
-            <p class="signature">Rebeca & Alexandre</p>
           </div>
         </div>
 
         <div id="schedule">
-          <!--I created this image using Canva Pro. Copyright @natikaart.-->
-          <img src="{% static 'website/flowers.svg' %}" alt="schedule-flowers" class="schedule-flowers">
-          <p class="heading-schedule">Programação</p>
-          <p id="countdown"></p>
+
+          <div class="tips-header">
+            <p class="heading-schedule">Programação</p>
+            <img src="{% static 'website/schedule-img.svg' %}" alt="schedule-img" class="tips-image">
+          </div>
+
           <div class="squares">
             <div class="left-square">
+              <img src="{% static 'website/pikachu.svg' %}" alt="pikachu" class="left-square-image">
               <div class="info-party">
                 <p class="heading-party1">Welcome Night</p>
                 <p class="info-dinner-datetime">Sexta | 18.04 às 19h</p>
-                <p class="info-dinner">Local: a definir</p> <!--Adicionar endereço depois e nome do local-->
-                <p class="info-dinner">Traje sugerido: esporte fino</p> <!--Adicionar infos do dress code real-->
-                <p class="info-dinner-description">Em breve, mais informações.</p>
-                <p class="info-dinner">Em breve, mais informações.</p>
-              </div>
-              <div>
-                <!-- This image is from Canva Pro. Copyright by Indra Pastorio. Authorized use through Canva Pro subscription. -->
-                <img src="{% static 'website/drink.png' %}" alt="drink" class="left-square-image">
+                <p class="info-dinner-datetime">Local: em breve</p> <!--Adicionar endereço depois e nome do local-->
+                <p class="info-dinner-description">No dia anterior ao casamento, vamos nos reunir para um jantar temático de Pokémon.
+                  Esse é um sonho do noivo, que é fã de carteirinha do desenho, e combina perfeitamente com o amor da noiva por animes. 
+                  Será uma noite leve e divertida para começarmos o fim de semana com o pé direito!</p>
+                <p class="info-dinner-description"><strong style="font-size: 16px;">Traje sugerido: fantasia Pokemón.</strong> Lembramos que é apenas uma sugestão! 
+                    O noivo estará fantasiado de Snorlax, enquanto a noiva não usará fantasia. 
+                    O jantar será em um restaurante, então, para quem preferir não usar fantasia, o traje poderá ser casual.</p>
+                <p class="info-dinner-description-2">Como esse é um evento extra organizado com muito carinho, 
+                  pedimos a gentileza de cada convidado arcar com suas próprias despesas no jantar. 
+                  Agradecemos pela compreensão e ficaremos muito felizes com a presença de todos nesse momento tão especial para nós! 💛</p>
               </div>
             </div>
-            <div class="left-square">
-              <div class="info-party">
+
+            <div class="right-square">
+              <div class="info-party-2">
                 <p class="heading-party1">The Day</p>
                 <p class="info-dinner-datetime">Sábado | 19.04 às 15h</p>
-                <p class="info-dinner">Local: casa dos pais do Ale</p> <!--Adicionar endereço depois-->
-                <p class="info-dinner-description">Traje: cocktail attire. Nessa época do ano, o clima tende a ser ameno/levemente calor durante o dia,
-                  e frio a noite. Recomendamos levar casaco/cachecol. Vale lembrar que nosso casamento será em casa, então vestidos midi estão super dentro do dress code.
-                </p> <!--Adicionar infos do dress code real depois-->
-                <p class="info-dinner">Em breve, mais informações.</p>
+                <p class="info-dinner-datetime">Local: Rua Miguel Pera, 295 - Vila Inglesa | Campos do Jordão</p>
+                <p class="info-dinner-description">A cerimônia iniciará às 15h. A recepção e a festa serão no mesmo local.</p>
+                <p class="info-dinner-description"><strong style="font-size: 16px;">Traje: esporte fino.</strong> O casamento será em casa, no início do outono. 
+                  Nessa época do ano, o clima tende a ser levemente quente durante o dia e bastante frio à noite. A festa seguirá até o início da madrugada.
+                  Por isso, recomendamos vestidos longos ou midis de tecidos estruturados, adequados para dias de calor ameno no campo. Não se esqueça de levar casacos, blazers, pashminas ou cachecóis para o frio durante a noite. 
+                  Também sugerimos o uso de calças e camisas sociais. Salto, gravata e sapato social não são obrigatórios, mas blazers ou peças quentes são altamente recomendados para o clima gelado da noite.
+                </p>
               </div>
               <div>
-                <!-- This image is from Canva Pro. Copyright by Rafaela Pedigoni Mauro. Authorized use through Canva Pro subscription. -->
-                <img src="{% static 'website/home.png' %}" alt="home" class="right-square-image">
+                <img src="{% static 'website/schedule-img2.svg' %}" alt="schedule-img-2" class="right-square-image">
               </div>
             </div>
           </div>
-
-        <div id="rsvp">
-          <p class="rsvp-heading">Confirme sua Presença</p>
-          <form method="POST" action="{% url 'rsvp' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Confirme Presença</button>
-            {% if message %}
-              <p>{{ message }}</p>
-            {% endif %}
-          </form>
         </div>
 
-        <!--ADICIONAR A FRASE EM PRESENTES: <p class="parag-text">O nosso maior presente é a presença de todos vocês! Mas, para aqueles que desejarem, 
-              ficaremos muito gratos com qualquer contribuição para nos ajudar com os custos da nossa lua de mel.</p>-->
-        <!--ADICIONAR A FRASE EM TRAJE: look tranquilo pois é festa em casa-->
+        <div id="tips">
+          <div class="tips-header">
+            <p class="heading-schedule">Dicas</p>
+            <img src="{% static 'website/tips-image.svg' %}" alt="tips-image" class="tips-image">
+          </div>
+
+          <div class="tips-container">
+            <div class="tips-rectangle">
+              <p class="tips-headings">Cabelo e Maquiagem</p>
+              <div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.jacquesjaninecj.com.br">Jacques Janine Campos do Jordão</a></p>
+                Tel: +55 12 99718-2601 (Central de Agendamento de Convidadas)
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.instagram.com/salaodojocabeleireiros/">Jô Cabeleireiros</a></p>
+                Tel: +55 12 99604-0311 / +55 12 99753-8920
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.instagram.com/salaopercioluiz/">Salão Percio Luiz</a></p>
+                Tel: +55 12 99741-9997 / +55 12 3662-3446
+              </div>
+
+              <!--<div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.instagram.com/raissajundi/">Raíssa Jundi</a></p>
+                Tel: +55 12 98199-9463
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.instagram.com/taissilveiramakeup/">Taís Silveira</a></p>
+                Tel: +55 12 99658-3494
+              </div>-->
+
+              <div class="tips-info">
+                <p class="tips-info-heading"><a href="https://www.instagram.com/analunl/">Anna Luiza Make</a></p>
+                Tel: +55 12 99766-6226
+              </div>
+            </div>
+
+            <div class="tips-rectangle">
+              <p class="tips-headings">Transporte</p>
+              <div class="tips-info">
+                <p class="tips-info-heading-2"><strong>Transfer</strong></p>
+                <div class="tips-info-text">Os dois contatos abaixo oferecem transporte SP - Campos - SP e 
+                  também disponibilizam vans para levar os convidados do local de hospedagem aos eventos e vice-versa.</div>
+                <p class="tips-info-heading-3">Paula Dib - DibTur</p>
+                <div>Tel: +55 12 99772-6000</div>
+                <p class="tips-info-heading-3">Planet Van Locadora</p>
+                <div>+55 11 5078-9744</div>
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading-2">Táxis</p>
+                <div class="tips-info-text">Além dos serviços de táxi comuns, ambos os contatos oferecem roteiros para passeios turísticos também.</div>
+                <p class="tips-info-heading"><a href="https://www.taxijames.com.br/">TaxiJames</a></p>
+                <div>Tel: + 55 12 99733-5465</div>
+                <p class="tips-info-heading"><a href="https://aquinotaxi.wixsite.com/aquinostaxi">Aquino's Taxi</a></p>
+                <div class="tips-info-text">Este contato também faz traslado GRU - Campos - GRU. </div>
+                <div>Tel: +55 12 99147-9955</div>
+              </div>
+
+            </div>
+
+            <div class="tips-rectangle">
+              <p class="tips-headings">Restaurantes e Passeios</p>
+              <div class="tips-info">
+                <p class="tips-info-heading-2">Casa de chocolates e fondues</p>
+                <p class="tips-info-heading"><a href="https://brunoalveschocolatier.com.br/">Bruno Alves</a></p>
+                O fondue de chocolate preferido dos noivos na cidade! Vale a visita!
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading-2">Restaurante clássico</p>
+                <p class="tips-info-heading"><a href="https://www.obadenbaden.com.br/#">Choperia Baden Baden</a></p>
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading-2">Passeios</p>
+                <p>Recomendados pelos noivos: Vila e Parque Capivari, Morro do Elefante [vista panorâmica da cidade], 
+                Parque Amantikir, Parque das Cerejeiras, Bosque do Silêncio, Parque da Cerveja, Museu Felícia Leirner, 
+                Fábrica de Chocolate e Horto Florestal.</p>
+              </div>
+
+              <div class="tips-info">
+                <p class="tips-info-heading-2">Para mais informações sobre passeios e restaurantes, acesse os links:</p>
+                <p class="tips-info-heading"><a href="https://www.cnnbrasil.com.br/viagemegastronomia/viagem/guia-campos-do-jordao-o-que-fazer-e-onde-comer-na-cidade-serrana/#goog_rewarded">O que fazer e onde comer em CJ</a></p>
+                <p class="tips-info-heading"><a href="https://www.cnnbrasil.com.br/nacional/25-pontos-turisticos-de-campos-do-jordao-para-incluir-em-seu-roteiro/#:~:text=O%20Parque%20da%20Cerveja%20est%C3%A1,pacotes%20com%20todos%20os%20passeios.">25 pontos turísticos de CJ</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="accommodation">
+          <div class="tips-header">
+            <p class="heading-schedule">Hospedagem</p>
+            <img src="{% static 'website/schedule-img.svg' %}" alt="accommodation-img" class="tips-image">
+          </div>
+
+          <div class="tips-info extra-padding">
+            <p class="tips-info-heading"><a href="https://almahotel.com.br/o-hotel/">Alma Hotel</a></p>
+            <p class="accommodation-price">$$$</p>
+            <div>Este hotel fica em frente ao local do casamento, basta atravessar a rua para chegar lá.</div>
+            <div>Tel: +55 12 99713-6801</div>
+          </div>
+
+          <div class="tips-info extra-padding">
+            <p class="tips-info-heading"><a href="https://www.dizabel.com.br/">Hotel Solar D'Izabel</a></p>
+            <p class="accommodation-price">$$$</p>
+            <div>Este hotel fica a 7 min a pé do local do casamento.</div>
+            <div>Tel: +55 12 3669-3030</div>
+          </div>
+
+          <div class="tips-info extra-padding">
+            <p class="tips-info-heading"><a href="https://camposdeprovence.com.br/">Pousada Campos de Provence</a></p>
+            <p class="accommodation-price">$$</p>
+            <div>Este hotel fica a 5 min a pé do local do casamento.</div>
+            <div>Tel: +55 12 3663-4003</div>
+          </div>
+
+          <div class="tips-info extra-padding">
+            <p class="tips-info-heading"><a href="https://pousadalatoscana.com.br/?utm_source=GoogleAds&utm_medium=Search&utm_campaign=Pesquisa-nome-do-hotel&utm_content=Exata-nome-do-hotel&utm_term=pousada%20la%20toscana&gad_source=1">Pousada La Toscana</a></p>
+            <p class="accommodation-price">$</p>
+            <div>Este hotel fica a 5 min a pé do local do casamento.</div>
+            <div>Tel: +55 12 3663-6650</div>
+          </div>
+
+          <div class="tips-info extra-padding">
+            <p class="tips-info-heading-2">Para mais informações sobre acomodações, acesse o link abaixo</p>
+            <p class="tips-info-heading"><a href="https://www.cnnbrasil.com.br/viagemegastronomia/viagem/onde-se-hospedar-em-campos-do-jordao-na-serra-da-mantiqueira/">Onde se hospedar em CJ</a></p>
+            <p>Existem ótimas opções de Airbnb e hotéis pela cidade. Recomendamos a região do Capivari por ser perto de restaurantes, passeios e dos locais dos eventos.</p>
+          </div>
+        </div>
+
+        <div id="rsvp">
+          <p class="heading-schedule">Rsvp</p>
+          <div class="tips-headings rsvp-margin">Confirme sua presença</div>
+          <div class="rsvp-container">
+            <form method="POST" action="{% url 'rsvp' %}" class="rsvp-form" id="rsvp-form">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="rsvp-button" id="rsvp-button">Envie sua Resposta</button>
+              <div id="rsvp-message-1" class="rsvp-message {% if message_type == 'success' %}success{% elif message_type == 'error' %}error{% endif %}">
+                {% if message %}
+                  {{ message }}
+                {% endif %}
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="gifts">
+          <div class="tips-header">
+            <p class="heading-schedule">Presentes</p>
+            <img src="{% static 'website/gifts-img.svg' %}" alt="gifts-image">
+          </div>
+
+          <div class="home-text-2">
+            <p class="heading">Queridos amigos e familiares,</p>
+            <p class="parag-text">O nosso maior presente é a presença de cada um de vocês nesses dias tão importantes. 
+            É a companhia, o carinho e as memórias que vamos compartilhar que tornarão este momento verdadeiramente especial para nós.</p>
+            <p class="parag-text">Se, ainda assim, quiserem nos presentear de alguma forma, 
+              preparamos uma lista com itens que nos ajudarão bastante com os custos da nossa lua de mel.</p>
+            <p class="parag-text">Com muito carinho,</p>
+            <p class="signature">Rebeca e Alexandre</p>
+
+            <div class="gifts-container">
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-5.svg' %}" alt="gifts-img-5" class="gifts-img-sqr">
+                <p class="gifts-heading">Upgrade para assento premium</p>
+                <p class="gifts-description">R$ 6.000,00</p>
+              </div>
+
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-4.svg' %}" alt="gifts-img-4" class="gifts-img-sqr">
+                <p class="gifts-heading">Estadia em El Chaltén</p>
+                <p class="gifts-description">R$ 3.000,00</p>
+              </div>
+
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-6.svg' %}" alt="gifts-img-6" class="gifts-img-sqr">
+                <p class="gifts-heading">Cavalgada pelos pampas</p>
+                <p class="gifts-description">R$ 1.500,00</p>
+              </div>
+
+            </div>
+
+            <div class="gifts-container">
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-3.svg' %}" alt="gifts-img-3" class="gifts-img-sqr">
+                <p class="gifts-heading">Estadia em El Calafate</p>
+                <p class="gifts-description">R$ 800,00</p>
+              </div>
+
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-2.svg' %}" alt="gifts-img-2" class="gifts-img-sqr">
+                <p class="gifts-heading">Observação de Pinguins em Punta Tombo</p>
+                <p class="gifts-description">R$ 300,00</p>
+              </div>
+
+              <div class="gifts-squares">
+                <img src="{% static 'website/gifts-img-1.svg' %}" alt="gifts-img-1" class="gifts-img-sqr">
+                <p class="gifts-heading">Jantar romântico em Ushuaia</p>
+                <p class="gifts-description">R$ 120,00</p>
+              </div>
+            </div>
+
+            <div class="index-form-2">
+              <p>Para efetuar o pagamento, abra o app do seu banco, escolha a opção para ler QR Code na seção Pix, scaneie o código abaixo e insira o valor desejado.</p>
+              <img src="{% static 'website/QRCode.jpg' %}" alt="qrcode-presentes" class="qrcode">
+              <p>Caso prefira, a chave Pix para transferência é:</p>
+              <div class="gifts-description">CPF: 928.295.112-04</div> 
+              <div class="gifts-description">Rebeca de Figueiredo Prado</div> 
+              <div class="gifts-description">Nubank</div>
+            </div>
+
+            <div class="footer">
+              <p>Site desenvolvido pela noiva com muito carinho ❤️</p>
+            </div>
+          </div>
+
+        </div>
 
     </body>
 </html>

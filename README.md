@@ -1,46 +1,51 @@
 # Wedding Website
 
-#### Video Demo: https://www.youtube.com/watch?v=g9dPqiAR5II
+Este é o site oficial do casamento de Rebeca, desenvolvido como parte do **final project** do curso CS50x. O objetivo do projeto é criar um site bonito, funcional e interativo para os convidados, ao mesmo tempo em que serve como um portfólio para demonstrar habilidades em **HTML, CSS e Django**.
 
-#### Description
+## 🎯 Funcionalidades
+- **Página única (Single Page Application - SPA)** com seções de navegação:
+  - Página inicial
+  - Programação
+  - Dicas
+  - Hospedagem
+  - RSVP
+  - Presentes
+- **Confirmação de presença (RSVP)** diretamente pelo site.
+- **Aceite de valores em dinheiro** para presentes.
+- **Design responsivo e estético**, pensado para oferecer uma boa experiência ao usuário.
+- **Jantar temático Pokémon** adicionado como evento extra na programação.
 
-This project is a single-page Wedding Website designed to showcase my web development skills as part of the final project for the CS50x course. It aims to be both functional and aesthetically appealing, with interactive features that engage users. The website serves as a hub for my upcoming wedding, featuring key information for guests while demonstrating my proficiency with front-end and back-end technologies.
+## 🛠 Tecnologias Utilizadas
+- **Frontend:** HTML, CSS (sem Bootstrap)
+- **Backend:** Django (Python)
+- **Banco de dados:** PostgreSQL
 
-The site includes the following sections:
+## 🚀 Como Rodar o Projeto Localmente
 
-Homepage: An introductory section with an engaging welcome message.
-Schedule: Details about the wedding weekend schedule.
-RSVP: A form where guests can confirm attendance.
+### 1️. Clone o repositório:
+```sh
+ git clone https://github.com/rebecaprado/my-wedding-website.git
+ cd wedding-website
+```
 
+### 2. Execute as migrações do banco de dados:
+```sh
+python manage.py migrate
+```
 
-#### index.html
-The HTML page that contains the password form for users to enter. 
+### 3. Inicie o servidor Django:
+```sh
+python manage.py runserver
+```
 
-#### home.html
-The primary HTML file for the website. It contains the structure and layout of the webpage, organized into sections for easy navigation using anchor links in the navbar. Semantic HTML tags ensure the content is accessible and well-organized.
+Agora, o site estará disponível em **http://127.0.0.1:8000/** 🎉
 
-#### styles.css
-Custom CSS file for styling the website. It includes responsive design elements to ensure the site looks great on both desktop and mobile devices. Special attention was given to typography and color schemes to match the wedding theme.
+## 📌 Status do Projeto
+O projeto está **em andamento**. A base estrutural já foi implementada, e os próximos passos incluem:
+- Testes e otimizações.
 
-#### models.py
-Contains the database schema, including models for:
+## 📜 Licença
+Este projeto está sob a licença MIT. Sinta-se à vontade para explorar e contribuir!
 
-DaysPresent: days of attendance.
-GuestConfirmation: storage of RSVP data, such as names, attendance confirmation and days of attendance.
-ConfirmationForm: form used to collect data from the guests.
-
-
-#### README.md
-This file you’re reading now, providing a detailed overview of the project.
-
-#### Design Choices
-Single Page Design
-I chose a single-page layout for simplicity and user convenience. Guests can quickly navigate between sections without reloading the page, providing a seamless experience.
-
-#### Custom CSS Over Bootstrap
-Initially, Bootstrap was used for styling, but I transitioned to a custom CSS file to have full control over the website's design. This allowed me to tailor the visual elements to match the wedding's unique aesthetic.
-
-#### Data Handling
-Managing RSVP submissions required thoughtful database design to accommodate attendance details, and any special notes from guests.
-
-This project reflects months of learning and dedication, combining technical skills with personal creativity. I hope this website not only serves its purpose for my wedding but also demonstrates my potential as a web developer.
+## 📩 Contato
+Caso tenha alguma dúvida ou sugestão, entre em contato comigo pelo [LinkedIn](https://www.linkedin.com/in/rebeca-prado/) ou abra uma issue no repositório. 😊
