@@ -135,7 +135,7 @@ load_dotenv()
 if os.getenv("SUPABASE_DB"):
     DATABASES = {
         'default': dj_database_url.config(
-            default=f'postgresql://{os.getenv("SUPABASE_USER")}:{os.getenv("SUPABASE_PASSWORD")}@{os.getenv("SUPABASE_HOST")}/{os.getenv("SUPABASE_DB")}'
+            default='postgresql://postgres:huia341%ˆ&UAHjugye!@#@db.oklmfbbkwoxuulwnaefd.supabase.co:5432/postgres'
         )
     }
 else:
