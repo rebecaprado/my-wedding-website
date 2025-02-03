@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponseNotFound
+
+def block_wordpress_requests(request):
+    return HttpResponseNotFound("Not Found")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("website.urls"))
+    path('', include("website.urls")),
+    path("wp-admin/setup-config.php", block_wordpress_requests),
+    path("wordpress/wp-admin/setup-config.php", block_wordpress_requests),
 ]
