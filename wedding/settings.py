@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -110,10 +111,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 MEDIA_ROOT = BASE_DIR / "media"
+
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -125,13 +131,21 @@ SESSION_COOKIE_AGE = 3600
 # Carregar variáveis do .env
 load_dotenv()
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "wedding_rsvp",
-        "USER": "rebecaprado",
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": "5432",
+# Se a variável SUPABASE_DB estiver definida, use o banco remoto, senão use o local
+if os.getenv("SUPABASE_DB"):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=f'postgresql://{os.getenv("SUPABASE_USER")}:{os.getenv("SUPABASE_PASSWORD")}@{os.getenv("SUPABASE_HOST")}/{os.getenv("SUPABASE_DB")}'
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'wedding_rsvp',
+            'USER': 'rebecaprado',
+            'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
